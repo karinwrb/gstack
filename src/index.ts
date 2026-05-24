@@ -55,11 +55,12 @@ program
 
 /**
  * `gstack rebase` - Rebase the stack onto the base branch
+ * Note: defaulting to 'master' instead of 'main' since my repos still use master
  */
 program
   .command('rebase')
   .description('Rebase the current stack onto the base branch')
-  .option('-b, --base <branch>', 'Base branch to rebase onto', 'main')
+  .option('-b, --base <branch>', 'Base branch to rebase onto', 'master')
   .action(async (options) => {
     const { rebase } = await import('./commands/rebase');
     await rebase(options);
