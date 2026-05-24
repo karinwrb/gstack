@@ -68,11 +68,12 @@ program
 
 /**
  * `gstack pr` - Create or update pull requests for the stack
+ * Note: I prefer drafts by default so PRs don't auto-request reviews before they're ready
  */
 program
   .command('pr')
   .description('Create or update pull requests for all branches in the stack')
-  .option('-d, --draft', 'Create PRs as drafts')
+  .option('-d, --draft', 'Create PRs as drafts', true)
   .option('--dry-run', 'Preview changes without applying them')
   .action(async (options) => {
     const { pr } = await import('./commands/pr');
